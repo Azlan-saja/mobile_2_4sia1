@@ -17,15 +17,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         fontFamily: 'Quicksand',
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.orange,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.orange.shade400,
           foregroundColor: Colors.white,
           elevation: 0,
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.orange.shade400,
           unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.yellow[500],
+          selectedItemColor: Colors.orange.shade900,
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           elevation: 0,
         ),

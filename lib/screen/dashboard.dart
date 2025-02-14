@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:master/screen/account.dart';
 import 'package:master/screen/home.dart';
 import 'package:master/screen/message.dart';
+import 'package:master/screen/navigation.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -12,11 +13,13 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _indexLayar = 1;
+
   final List _layarTerpilih = [
     const Message(),
     const Home(),
     const Account(),
   ];
+
   void _ganti(int index) {
     setState(() {
       _indexLayar = index;
@@ -64,7 +67,14 @@ class _DashboardState extends State<Dashboard> {
               title: const Text('Navigasi'),
               selected: true,
               selectedColor: Colors.blue,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Navigation(),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.data_array),
