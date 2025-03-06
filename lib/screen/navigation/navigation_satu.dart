@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
 class NavigationSatu extends StatelessWidget {
-  const NavigationSatu({super.key});
+  final String nama;
+
+  const NavigationSatu({super.key, required this.nama});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Navigation 1'),
+        title: const Text('Kirim Data'),
+      ),
+      body:      Center(
+        child: Text('Hei Kawan. Nama saya $nama'),
       ),
     );
   }
