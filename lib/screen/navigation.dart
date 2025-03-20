@@ -4,8 +4,9 @@ import 'package:master/screen/navigation/navigation_satu.dart';
 import 'package:master/screen/navigation/navigation_tiga.dart';
 
 class Navigation extends StatelessWidget {
-  final data = TextEditingController();
   Navigation({super.key});
+
+  final data = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +43,10 @@ class Navigation extends StatelessWidget {
               },
               child: const Text('Terima Data'),
             ),
-            Container(
+            Padding(
               padding: const EdgeInsets.all(12),
-              margin: const EdgeInsets.only(),
               child: TextFormField(
+                readOnly: true,
                 controller: data,
                 maxLength: 20,
                 decoration: const InputDecoration(
@@ -53,12 +54,39 @@ class Navigation extends StatelessWidget {
                   labelStyle: TextStyle(
                     color: Colors.blueGrey,
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(50),
                     ),
                   ),
                   helperText: "Datanya apa ya?",
+                ),
+                onChanged: (value) {},
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Divider(),
+            const SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                maxLength: 2,
+                decoration: const InputDecoration(
+                  labelText: 'Kirim Nilai 1',
+                  labelStyle: TextStyle(
+                    color: Colors.blueGrey,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  helperText: "Silahkan input nilai 1 sekarang!",
                 ),
                 onChanged: (value) {},
               ),
