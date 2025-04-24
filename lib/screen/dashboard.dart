@@ -3,6 +3,7 @@ import 'package:master/screen/account.dart';
 import 'package:master/screen/home.dart';
 import 'package:master/screen/message.dart';
 import 'package:master/screen/navigation.dart';
+import 'package:master/screen/state_manajemen/state_manajemen.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -79,7 +80,14 @@ class _DashboardState extends State<Dashboard> {
             ListTile(
               leading: const Icon(Icons.data_array),
               title: const Text('State Manajemen'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StateManajemen(),
+                  ),
+                );
+              },
             ),
           ],
         ),
