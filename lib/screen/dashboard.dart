@@ -96,16 +96,42 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indexLayar,
         onTap: _ganti,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
+            icon: Stack(
+              children: [
+                const Icon(Icons.message),
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Colors.green.withOpacity(0.9),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    constraints:
+                        const BoxConstraints(minWidth: 16, minHeight: 16),
+                    child: const Text(
+                      '12',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
             label: 'Message',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Account',
           ),

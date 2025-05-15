@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:master/providers/counter_provider.dart';
+import 'package:provider/provider.dart';
 
 class StateManajemen extends StatefulWidget {
   const StateManajemen({super.key});
@@ -12,6 +14,8 @@ class _StateManajemenState extends State<StateManajemen> {
 
   @override
   Widget build(BuildContext context) {
+    final counterProvider = Provider.of<CounterProvider>(context);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Layar State Manajemen')),
       body: Center(
@@ -53,9 +57,18 @@ class _StateManajemenState extends State<StateManajemen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(onPressed: () {}, child: const Text('-1')),
-                const Text('X', style: TextStyle(fontSize: 37)),
-                ElevatedButton(onPressed: () {}, child: const Text('+1')),
+                ElevatedButton(
+                    onPressed: () {
+                      counterProvider.kurangkan();
+                    },
+                    child: const Text('-1')),
+                Text(counterProvider.hasil,
+                    style: const TextStyle(fontSize: 37)),
+                ElevatedButton(
+                    onPressed: () {
+                      counterProvider.tambahkan();
+                    },
+                    child: const Text('+1')),
               ],
             ),
             const Divider(),
