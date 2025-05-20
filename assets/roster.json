@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "jam": "08:00",
+        "pelajaran": "Pemrograman Mobile 2"
+    },
+    {
+        "id": 2,
+        "jam": "09:33",
+        "pelajaran": "Pemodelan dan Simulasi"
+    }
+]

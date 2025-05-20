@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:master/providers/counter_provider.dart';
 import 'package:master/screen/account.dart';
 import 'package:master/screen/home.dart';
+import 'package:master/screen/json/file_json_screen.dart';
 import 'package:master/screen/message.dart';
 import 'package:master/screen/navigation.dart';
 import 'package:master/screen/state_manajemen/state_manajemen.dart';
+import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -29,6 +32,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    print("Cetak Layar Dashboard.");
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('APP 4SIA1'),
@@ -84,7 +89,19 @@ class _DashboardState extends State<Dashboard> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => StateManajemen(),
+                    builder: (context) => const StateManajemen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.file_copy),
+              title: const Text('File Json'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FileJsonScreen(),
                   ),
                 );
               },
@@ -96,19 +113,38 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indexLayar,
         onTap: _ganti,
-        items: const [
+        items: [
           BottomNavigationBarItem(
             icon: Badge(
-              label: Text('40'),
-              child: Icon(Icons.message),
+              label: Consumer<CounterProvider>(
+                builder: (context, value, child) {
+                  print("Cetak Hanya Hasil di Layar Dashboard.");
+                  return Text(value.hasil);
+                },
+              ),
+              child: const Icon(Icons.message),
             ),
             label: 'Message',
           ),
-          BottomNavigationBarItem(
+          // BottomNavigationBarItem(
+          //   icon: Badge(
+          //     label: Text(Provider.of<CounterProvider>(context).hasil),
+          //     child: const Icon(Icons.message),
+          //   ),
+          //   label: 'Message',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: Badge(
+          //     label: Text('40'),
+          //     child: const Icon(Icons.message),
+          //   ),
+          //   label: 'Message',
+          // ),
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Account',
           ),

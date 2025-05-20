@@ -14,8 +14,9 @@ class _StateManajemenState extends State<StateManajemen> {
 
   @override
   Widget build(BuildContext context) {
-    final counterProvider = Provider.of<CounterProvider>(context);
-
+    final counterProvider =
+        Provider.of<CounterProvider>(context, listen: false);
+    print("Cetak Layar State Manajemen.");
     return Scaffold(
       appBar: AppBar(title: const Text('Layar State Manajemen')),
       body: Center(
@@ -62,8 +63,15 @@ class _StateManajemenState extends State<StateManajemen> {
                       counterProvider.kurangkan();
                     },
                     child: const Text('-1')),
-                Text(counterProvider.hasil,
-                    style: const TextStyle(fontSize: 37)),
+                Consumer<CounterProvider>(
+                  builder: (context, value, child) {
+                    print("Cetak Hanya Hasil di Layar State Manajemen.");
+                    return Text(value.hasil,
+                        style: const TextStyle(fontSize: 37));
+                  },
+                ),
+                // Text(counterProvider.hasil,
+                //     style: const TextStyle(fontSize: 37)),
                 ElevatedButton(
                     onPressed: () {
                       counterProvider.tambahkan();
