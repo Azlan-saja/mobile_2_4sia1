@@ -1,9 +1,30 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class FileJsonScreen extends StatelessWidget {
-  FileJsonScreen({super.key});
+class FileJsonScreen extends StatefulWidget {
+  const FileJsonScreen({super.key});
 
+  @override
+  State<FileJsonScreen> createState() => _FileJsonScreenState();
+}
+
+class _FileJsonScreenState extends State<FileJsonScreen> {
   final jamController = TextEditingController();
+  List<Map<String, dynamic>> roster = [];
+
+  readRoster() async {
+    final isiFile = await rootBundle.loadString('assets/roster.json');
+    roster = List<Map<String, dynamic>>.from(jsonDecode(isiFile));
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    readRoster();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +86,7 @@ class FileJsonScreen extends StatelessWidget {
             const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
-                itemCount: 100,
+                itemCount: roster.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: CircleAvatar(

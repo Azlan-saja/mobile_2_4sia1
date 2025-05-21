@@ -32,7 +32,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    print("Cetak Layar Dashboard.");
+    // print("Cetak Layar Dashboard.");
 
     return Scaffold(
       appBar: AppBar(
@@ -118,7 +118,7 @@ class _DashboardState extends State<Dashboard> {
             icon: Badge(
               label: Consumer<CounterProvider>(
                 builder: (context, value, child) {
-                  print("Cetak Hanya Hasil di Layar Dashboard.");
+                  // print("Cetak Hanya Hasil di Layar Dashboard.");
                   return Text(value.hasil);
                 },
               ),

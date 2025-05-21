@@ -16,7 +16,7 @@ class _StateManajemenState extends State<StateManajemen> {
   Widget build(BuildContext context) {
     final counterProvider =
         Provider.of<CounterProvider>(context, listen: false);
-    print("Cetak Layar State Manajemen.");
+    // print("Cetak Layar State Manajemen.");
     return Scaffold(
       appBar: AppBar(title: const Text('Layar State Manajemen')),
       body: Center(
@@ -64,8 +64,8 @@ class _StateManajemenState extends State<StateManajemen> {
                     },
                     child: const Text('-1')),
                 Consumer<CounterProvider>(
-                  builder: (context, value, child) {
-                    print("Cetak Hanya Hasil di Layar State Manajemen.");
+                  builder: (_, value, __) {
+                    // print("Cetak Hanya State Hasil.");
                     return Text(value.hasil,
                         style: const TextStyle(fontSize: 37));
                   },
